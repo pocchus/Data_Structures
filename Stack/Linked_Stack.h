@@ -39,6 +39,7 @@ public:
 		newNode->data = element;
 		newNode->next = _top;
 		_top = newNode;
+		_size++;
 	}
 
 	T pop() {
@@ -46,6 +47,7 @@ public:
 		Node* tmp = _top;
 		_top = _top->next;
 		delete tmp;
+		_size--;
 		return ret;
 	}
 
