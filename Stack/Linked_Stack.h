@@ -1,9 +1,6 @@
 #ifndef _LINKED_STACK_
 #define _LINKED_STACK_
 
-#include <iostream>
-#include <new>
-
 template <typename T>
 class Linked_Stack {
 private:
@@ -38,13 +35,7 @@ public:
 
 	void push(T element) {
 		Node* newNode;
-		try {
-			newNode = new Node;
-		}
-		catch (std::bad_alloc& e) {
-			std::cerr << "Allocation failed: " << e.what() << '\n';
-			return;
-		}
+		newNode = new Node;
 		newNode->data = element;
 		newNode->next = _top;
 		_top = newNode;
