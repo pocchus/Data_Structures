@@ -27,7 +27,7 @@ public:
 	}
 
 	bool full() {
-		return (_rear + 1) % _max_size == front;
+		return (_back + 1) % _max_size == front;
 	}
 
 	int size() {
@@ -35,8 +35,8 @@ public:
 	}
 
 	void push(T element) {
-		arr[_rear] = element;
-		_rear = (_rear + 1) % _max_size;
+		arr[_back] = element;
+		_back = (_back + 1) % _max_size;
 		_size++;
 	}
 
