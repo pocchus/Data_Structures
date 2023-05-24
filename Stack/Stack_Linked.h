@@ -21,11 +21,11 @@ public:
 		}
 	}
 
-	bool empty() {
+	bool empty() const {
 		return _top == nullptr;
 	}
 
-	void push(T data) {
+	void push(const T& data) {
 		Node* newNode = new Node;
 		newNode->data = data;
 		newNode->next = _top;
@@ -36,6 +36,7 @@ public:
 		if (empty()) {
 			throw std::underflow_error("Stack underflow error. Stack is empty.");
 		}
+
 		Node* tmp = _top;
 		_top = _top->next;
 		delete tmp;
@@ -45,6 +46,7 @@ public:
 		if (empty()) {
 			throw std::underflow_error("Stack underflow error. Stack is empty.");
 		}
+
 		return _top->data;
 	}
 };
