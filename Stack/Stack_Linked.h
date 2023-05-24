@@ -34,7 +34,7 @@ public:
 
 	void pop() {
 		if (empty()) {
-			throw std::underflow_error("Stack underflow error. Stack is empty.");
+			throw std::underflow_error("Stack underflow error.");
 		}
 
 		Node* tmp = _top;
@@ -44,7 +44,7 @@ public:
 
 	T top() {
 		if (empty()) {
-			throw std::underflow_error("Stack underflow error. Stack is empty.");
+			throw std::underflow_error("Stack underflow error.");
 		}
 
 		return _top->data;

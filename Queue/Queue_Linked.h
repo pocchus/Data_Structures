@@ -41,7 +41,7 @@ public:
 
 	void pop() {
 		if (empty()) {
-			throw std::underflow_error("Queue underflow error. Queue is empty.");
+			throw std::underflow_error("Queue underflow error.");
 		}
 
 		Node* tmp = _front;
@@ -55,7 +55,7 @@ public:
 
 	T front() {
 		if (empty()) {
-			throw std::underflow_error("Queue underflow error. Queue is empty.");
+			throw std::underflow_error("Queue underflow error.");
 		}
 
 		return _front->data;
