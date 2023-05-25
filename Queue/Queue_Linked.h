@@ -20,10 +20,10 @@ public:
     Queue();
     ~Queue();
     bool empty() const;
-    size_t size();
+    size_t size() const;
     void push(const T &data);
     void pop();
-    T front();
+    T front() const;
 };
 
 #include "Queue.cpp"

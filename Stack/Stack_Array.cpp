@@ -14,7 +14,13 @@ void Stack<T>::resize(size_t newCapacity)
 }
 
 template <typename T>
-Stack<T>::Stack() : _capacity(4), _top(0)
+Stack<T>::Stack() : _capacity(2), _top(0)
+{
+    arr = new T[_capacity];
+}
+
+template <typename T>
+Stack<T>::Stack(size_t capacity) : _capacity(capacity), _top(0)
 {
     arr = new T[_capacity];
 }
@@ -56,7 +62,7 @@ void Stack<T>::pop()
         throw std::underflow_error("Stack is empty.");
     }
     _top--;
-    if (_top < _capacity / 4 && _capacity > 4)
+    if (_top < _capacity / 4 && _capacity > 2)
     {
         size_t newCapacity = _capacity / 2;
         resize(newCapacity);
@@ -64,7 +70,7 @@ void Stack<T>::pop()
 }
 
 template <typename T>
-T Stack<T>::top()
+T Stack<T>::top() const
 {
     if (empty())
     {

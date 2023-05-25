@@ -19,7 +19,7 @@ bool Queue<T>::empty() const
 }
 
 template <typename T>
-size_t Queue<T>::size()
+size_t Queue<T>::size() const
 {
     return _size;
 }
@@ -62,7 +62,7 @@ void Queue<T>::pop()
 }
 
 template <typename T>
-T Queue<T>::front()
+T Queue<T>::front() const
 {
     if (empty())
     {

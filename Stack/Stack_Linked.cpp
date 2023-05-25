@@ -19,7 +19,7 @@ bool Stack<T>::empty() const
 }
 
 template <typename T>
-size_t Stack<T>::size()
+size_t Stack<T>::size() const
 {
     return _size;
 }
@@ -49,7 +49,7 @@ void Stack<T>::pop()
 }
 
 template <typename T>
-T Stack<T>::top()
+T Stack<T>::top() const
 {
     if (empty())
     {

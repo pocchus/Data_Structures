@@ -19,10 +19,10 @@ public:
     Stack();
     ~Stack();
     bool empty() const;
-    size_t size();
+    size_t size() const;
     void push(const T &data);
     void pop();
-    T top();
+    T top() const;
 };
 
 #include "Stack_Linked.cpp"
