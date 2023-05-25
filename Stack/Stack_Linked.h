@@ -4,53 +4,64 @@
 #include <stdexcept>
 
 template <typename T>
-class Stack {
+class Stack
+{
 private:
-	struct Node {
+	struct Node
+	{
 		T data;
-		Node* next;
+		Node *next;
 	};
-	Node* _top;
+	Node *_top;
 	size_t _size;
 
 public:
-	Stack() :_top(nullptr), _size(0) {}
+	Stack() : _top(nullptr), _size(0) {}
 
-	~Stack() {
-		while (!empty()) {
+	~Stack()
+	{
+		while (!empty())
+		{
 			pop();
 		}
 	}
 
-	bool empty() const {
+	bool empty() const
+	{
 		return _top == nullptr;
 	}
 
-	size_t size() {
+	size_t size()
+	{
 		return _size;
 	}
 
-	void push(const T& data) {
-		Node* newNode = new Node;
+	void push(const T &data)
+	{
+		Node *newNode = new Node;
 		newNode->data = data;
 		newNode->next = _top;
 		_top = newNode;
 		_size++;
 	}
 
-	void pop() {
-		if (empty()) {
+	void pop()
+	{
+		if (empty())
+		{
 			throw std::underflow_error("Stack is empty.");
 		}
 
-		Node* tmp = _top;
+		Node *tmp = _top;
 		_top = _top->next;
 		delete tmp;
 		_size--;
 	}
 
-	T top() {
-		if (empty()) {
+	T top()
+	{
+		if (empty())
+		{
 			throw std::underflow_error("Stack is empty.");
 		}
 

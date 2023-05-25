@@ -4,42 +4,51 @@
 #include <stdexcept>
 
 template <typename T>
-class Deque {
+class Deque
+{
 private:
-    struct Node {
+    struct Node
+    {
         T data;
-        Node* prev;
-        Node* next;
-        Node(const T& _data) : data(_data), prev(nullptr), next(nullptr) {}
+        Node *prev;
+        Node *next;
+        Node(const T &_data) : data(_data), prev(nullptr), next(nullptr) {}
     };
-    Node* _front;
-    Node* _back;
+    Node *_front;
+    Node *_back;
     size_t _size;
 
 public:
-    Deque() :_front(nullptr), _back(nullptr), _size(0) {}
+    Deque() : _front(nullptr), _back(nullptr), _size(0) {}
 
-    ~Deque() {
-        while (!empty()) {
+    ~Deque()
+    {
+        while (!empty())
+        {
             pop_front();
         }
     }
 
-    bool empty() const {
+    bool empty() const
+    {
         return _front == nullptr;
     }
 
-    size_t size() {
+    size_t size()
+    {
         return _size;
     }
 
-    void push_front(const T& data) {
-        Node* newNode = new Node(data);
-        if (empty()) {
+    void push_front(const T &data)
+    {
+        Node *newNode = new Node(data);
+        if (empty())
+        {
             _front = newNode;
             _back = newNode;
         }
-        else {
+        else
+        {
             newNode->prev = _front;
             _front->next = newNode;
             _front = newNode;
@@ -47,13 +56,16 @@ public:
         _size++;
     }
 
-    void push_back(const T& data) {
-        Node* newNode = new Node(data);
-        if (empty()) {
+    void push_back(const T &data)
+    {
+        Node *newNode = new Node(data);
+        if (empty())
+        {
             _front = newNode;
             _back = newNode;
         }
-        else {
+        else
+        {
             newNode->next = _back;
             _back->prev = newNode;
             _back = newNode;
@@ -61,17 +73,21 @@ public:
         _size++;
     }
 
-    void pop_front() {
-        if (empty()) {
+    void pop_front()
+    {
+        if (empty())
+        {
             throw std::underflow_error("Deque is empty.");
         }
 
-        Node* tmp = _front;
-        if (_front == _back) {
+        Node *tmp = _front;
+        if (_front == _back)
+        {
             _front = nullptr;
             _back = nullptr;
         }
-        else {
+        else
+        {
             _front = _front->prev;
             _front->next = nullptr;
         }
@@ -79,17 +95,21 @@ public:
         _size--;
     }
 
-    void pop_back() {
-        if (empty()) {
+    void pop_back()
+    {
+        if (empty())
+        {
             throw std::underflow_error("Deque is empty.");
         }
 
-        Node* tmp = _back;
-        if (_front == _back) {
+        Node *tmp = _back;
+        if (_front == _back)
+        {
             _front = nullptr;
             _back = nullptr;
         }
-        else {
+        else
+        {
             _back = _back->next;
             _back->prev = nullptr;
         }
@@ -97,20 +117,23 @@ public:
         _size--;
     }
 
-    T front() {
-        if (empty()) {
+    T front()
+    {
+        if (empty())
+        {
             throw std::underflow_error("Deque is empty.");
         }
         return _front->data;
     }
 
-    T back() {
-        if (empty()) {
+    T back()
+    {
+        if (empty())
+        {
             throw std::underflow_error("Deque is empty.");
         }
         return _back->data;
     }
 };
-
 
 #endif
