@@ -11,9 +11,10 @@ private:
 		Node* next;
 	};
 	Node* _top;
+	size_t _size;
 
 public:
-	Stack() :_top(nullptr) {}
+	Stack() :_top(nullptr), _size(0) {}
 
 	~Stack() {
 		while (!empty()) {
@@ -25,11 +26,16 @@ public:
 		return _top == nullptr;
 	}
 
+	size_t size() {
+		return _size;
+	}
+
 	void push(const T& data) {
 		Node* newNode = new Node;
 		newNode->data = data;
 		newNode->next = _top;
 		_top = newNode;
+		_size++;
 	}
 
 	void pop() {
@@ -40,6 +46,7 @@ public:
 		Node* tmp = _top;
 		_top = _top->next;
 		delete tmp;
+		_size--;
 	}
 
 	T top() {
