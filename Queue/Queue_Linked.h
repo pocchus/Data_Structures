@@ -1,6 +1,8 @@
 #ifndef _QUEUE_LINKED_
 #define _QUEUE_LINKED_
 
+#include <stdexcept>
+
 template <typename T>
 class Queue {
 private:
@@ -41,7 +43,7 @@ public:
 
 	void pop() {
 		if (empty()) {
-			throw std::underflow_error("Queue underflow error.");
+			throw std::underflow_error("Queue is empty.");
 		}
 
 		Node* tmp = _front;
@@ -55,7 +57,7 @@ public:
 
 	T front() {
 		if (empty()) {
-			throw std::underflow_error("Queue underflow error.");
+			throw std::underflow_error("Queue is empty.");
 		}
 
 		return _front->data;
