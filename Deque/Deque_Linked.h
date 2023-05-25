@@ -34,7 +34,7 @@ public:
         return _front == nullptr;
     }
 
-    size_t size()
+    size_t size() const
     {
         return _size;
     }
@@ -117,7 +117,7 @@ public:
         _size--;
     }
 
-    T front()
+    T front() const
     {
         if (empty())
         {
@@ -126,7 +126,7 @@ public:
         return _front->data;
     }
 
-    T back()
+    T back() const
     {
         if (empty())
         {
