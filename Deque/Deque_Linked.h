@@ -87,10 +87,16 @@ public:
     }
 
     T front(){
+        if(empty()){
+            throw std::underflow_error("Deque is empty.");
+        }
         return _front->data;
     }
 
     T back(){
+        if(empty()){
+            throw std::underflow_error("Deque is empty.");
+        }
         return _back->data;
     }
 };
