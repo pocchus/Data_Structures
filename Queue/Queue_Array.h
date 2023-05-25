@@ -22,7 +22,7 @@ public:
     size_t size() const;
     void push(const T &data);
     void pop();
-    T front();
+    T front() const;
 };
 
 #include "Queue_Array.cpp"

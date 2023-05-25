@@ -75,7 +75,7 @@ void Queue<T>::pop()
 }
 
 template <typename T>
-T Queue<T>::front()
+T Queue<T>::front() const
 {
     if (empty())
     {
