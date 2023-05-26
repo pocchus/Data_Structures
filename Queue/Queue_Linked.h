@@ -26,6 +26,6 @@ public:
     T front() const;
 };
 
-#include "Queue.cpp"
+#include "Queue_Linked.cpp"
 
 #endif
